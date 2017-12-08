@@ -9,5 +9,5 @@ package com.turvo.assesment.track;
  */
 public interface ConsumptionAnalyzer {
 
-	public AnalysisData analyze();
+	public AnalysisData analyze(Object obj);
 }

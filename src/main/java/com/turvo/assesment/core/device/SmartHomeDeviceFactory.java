@@ -36,6 +36,7 @@ public class SmartHomeDeviceFactory {
 		case 0:
 
 			builder = new SingleConsumptionDeviceBuilder();
+			break;
 
 		default:
 			builder = new MultiConsumptionDeviceBuilder();

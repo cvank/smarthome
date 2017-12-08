@@ -9,15 +9,16 @@ import com.turvo.assesment.core.source.EnergySource;
  * @author chandrashekarv
  *
  */
-public class EnergySourceConsumptionAnalyzer implements ConsumptionAnalyzer {
+public enum EnergySourceConsumptionAnalyzer implements ConsumptionAnalyzer {
 
-	private EnergySource energySource;
+	INSTANCE;
 
 	@Override
-	public AnalysisData analyze() {
+	public AnalysisData analyze(Object obj) {
 
 		// Analyze consumption for the given energySource.
-
+		EnergySource energySource = (EnergySource) obj;
+		
 		return null;
 	}
 

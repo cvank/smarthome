@@ -3,6 +3,7 @@
  */
 package com.turvo.assesment.core.device;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,15 @@ public class MultiConsumptionDevice extends SmartHomeDevice {
 
 	private List<Tuple<SustainableEnergy, List<EnergySource>>> deviceEnergyData;
 
+	public MultiConsumptionDevice(String deviceId, String deviceName) {
+		setDeviceId(deviceId);
+		setDeviceName(deviceName); 
+	}
+
+	public List<Tuple<SustainableEnergy, List<EnergySource>>> accessDeviceEnergyData() {
+		return Collections.unmodifiableList(deviceEnergyData);
+	}
+
 	/**
 	 * Builds multi Consumption device.
 	 * 
@@ -31,15 +41,15 @@ public class MultiConsumptionDevice extends SmartHomeDevice {
 	 *
 	 */
 	public static class MultiConsumptionDeviceBuilder extends SmartHomeDeviceBuilder {
-		
+
 		public MultiConsumptionDeviceBuilder() {
 			super();
 		}
 
 		@Override
 		public SmartHomeDevice build(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap) {
-			smartHomeDevice = new MultiConsumptionDevice();
-			
+			smartHomeDevice = new MultiConsumptionDevice(getDeviceId(), getDeviceName());
+
 			return smartHomeDevice;
 		}
 

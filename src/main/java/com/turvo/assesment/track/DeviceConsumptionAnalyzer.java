@@ -3,26 +3,81 @@
  */
 package com.turvo.assesment.track;
 
-import com.turvo.assesment.core.device.SmartHomeDevice;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+import com.turvo.assesment.core.Tuple;
+import com.turvo.assesment.core.device.MultiConsumptionDevice;
+import com.turvo.assesment.core.device.SingleConsumptionDevice;
+import com.turvo.assesment.core.energy.SustainableEnergy;
+import com.turvo.assesment.core.source.EnergySource;
+
+import rx.Observable;
+import rx.schedulers.Schedulers;
 
 /**
  * @author chandrashekarv
  *
  */
-public class DeviceConsumptionAnalyzer implements ConsumptionAnalyzer {
+public enum DeviceConsumptionAnalyzer implements ConsumptionAnalyzer {
 
-	private SmartHomeDevice device;
-
-	private DeviceConsumptionAnalyzer(SmartHomeDevice device) {
-		super();
-		this.device = device;
-	}
+	INSTANCE;
 
 	@Override
-	public AnalysisData analyze() {
-		
+	public AnalysisData analyze(Object obj) {
+
+		if (obj instanceof SingleConsumptionDevice) {
+			return analyseSingleConsumptionDevice(obj);
+		} else if (obj instanceof MultiConsumptionDevice) {
+			return analyseMultiConsumptionDevice(obj);
+		}
+
 		// analyze device consumption.
+
+		return null;
+	}
+
+	/**
+	 * Consumption for multi consumption device.
+	 * 
+	 * @param obj
+	 * @return
+	 */
+	private AnalysisData analyseMultiConsumptionDevice(Object obj) {
+		MultiConsumptionDevice device = (MultiConsumptionDevice) obj;
+
+		// for the single device access energy utilized.
+		List<AnalysisData> deviceAnalysisData = new CopyOnWriteArrayList<>();
+		Observable.from(device.accessDeviceEnergyData()).subscribeOn(Schedulers.computation())
+				.map(this::fetchFromEnergy).doOnNext(e -> deviceAnalysisData.add(e));
+
+		return null;
+	}
+
+	/**
+	 * Fetch consumption based per energy.
+	 * 
+	 * @param tuple
+	 * @return
+	 */
+	private AnalysisData fetchFromEnergy(Tuple<SustainableEnergy, List<EnergySource>> tuple) {
+
+		// For each energy fetch consumption per energy source.
 		
+		return null;
+	}
+
+	/**
+	 * Consumption Analysis for singleConsumptionDevice.
+	 * 
+	 * @param obj
+	 * @return
+	 */
+	private AnalysisData analyseSingleConsumptionDevice(Object obj) {
+		SingleConsumptionDevice device = (SingleConsumptionDevice) obj;
+
+		// for the multi device access energy utilized.
+
 		return null;
 	}
 

@@ -9,13 +9,14 @@ import com.turvo.assesment.core.energy.SustainableEnergy;
  * @author chandrashekarv
  *
  */
-public class EnergyConsumptionAnalyzer implements ConsumptionAnalyzer {
+public enum EnergyConsumptionAnalyzer implements ConsumptionAnalyzer {
 
-	private SustainableEnergy energy;
-
+	INSTANCE;
 	@Override
-	public AnalysisData analyze() {
+	public AnalysisData analyze(Object obj) {
 
+		SustainableEnergy energy = (SustainableEnergy) obj;
+		
 		// Analyze total utilization of the given energy.
 		return null;
 	}

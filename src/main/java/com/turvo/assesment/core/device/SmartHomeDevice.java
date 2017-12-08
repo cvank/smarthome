@@ -32,10 +32,32 @@ public class SmartHomeDevice implements Serializable {
 	 */
 	private String deviceId;
 
-	/**
-	 * Consumption of the energy by the device.
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+	}
+
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
+	}
+
+	/*	*//**
+			 * Consumption of the energy by the device.
+			 *//*
+				 * private Tuple3<SustainableEnergy, EnergySource, Consumption> consumption;
+				 */
+
+	public String getDeviceName() {
+		return deviceName;
+	}
+
+	public String getDeviceId() {
+		return deviceId;
+	}
+
+	/*
+	 * public Tuple3<SustainableEnergy, EnergySource, Consumption> getConsumption()
+	 * { return consumption; }
 	 */
-	private Tuple3<SustainableEnergy, EnergySource, Consumption> consumption;
 
 	/**
 	 * Enable to build smart home device for the given details.
@@ -56,6 +78,14 @@ public class SmartHomeDevice implements Serializable {
 		 * Unique identifier.
 		 */
 		private String deviceId;
+
+		public String getDeviceName() {
+			return deviceName;
+		}
+
+		public String getDeviceId() {
+			return deviceId;
+		}
 
 		public SmartHomeDeviceBuilder() {
 			super();

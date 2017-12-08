@@ -25,9 +25,17 @@ public class SingleConsumptionDevice extends SmartHomeDevice {
 
 	private Tuple<SustainableEnergy, List<EnergySource>> deviceEnergyData;
 
-	private SingleConsumptionDevice() {
-		super();
+	
+	public SingleConsumptionDevice(String deviceId, String deviceName) {
+		setDeviceId(deviceId);
+		setDeviceName(deviceName); 
+	} 
+
+
+	public Tuple<SustainableEnergy, List<EnergySource>> getDeviceEnergyData() {
+		return deviceEnergyData;
 	}
+
 
 	/**
 	 * Builds Single Consumption device.
@@ -43,7 +51,7 @@ public class SingleConsumptionDevice extends SmartHomeDevice {
 
 		@Override
 		public SmartHomeDevice build(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap) {
-			smartHomeDevice = new SingleConsumptionDevice();
+			smartHomeDevice = new SingleConsumptionDevice(getDeviceId(), getDeviceName());
 			// Set energy and respective energy sources.
 
 			return smartHomeDevice;

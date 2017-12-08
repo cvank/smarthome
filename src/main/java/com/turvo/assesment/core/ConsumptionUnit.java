@@ -40,7 +40,7 @@ public final class ConsumptionUnit {
 	 * @author chandrashekarv
 	 *
 	 */
-	enum ConsumptionTypeUnit {
+	public enum ConsumptionTypeUnit {
 
 		KG, LITER, KW, M3;
 	}
