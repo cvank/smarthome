@@ -3,11 +3,14 @@ package com.turvo.assesment.core.device;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import com.turvo.assesment.core.Consumption;
 import com.turvo.assesment.core.EnergySourceType;
 import com.turvo.assesment.core.EnergyType;
+import com.turvo.assesment.core.Tuple3;
 import com.turvo.assesment.core.energy.SustainableEnergy;
+import com.turvo.assesment.core.source.EnergySource;
 
 /**
  * SmartHomeDevice: Abstracts the device based on type of consumption.
@@ -18,11 +21,6 @@ import com.turvo.assesment.core.energy.SustainableEnergy;
 public class SmartHomeDevice implements Serializable {
 
 	private static final long serialVersionUID = -135024356194999530L;
-
-	/**
-	 * Energies needed to run the device such as power, water etc.
-	 */
-	private List<SustainableEnergy> deviceEnergy;
 
 	/**
 	 * Name of the device.
@@ -37,7 +35,7 @@ public class SmartHomeDevice implements Serializable {
 	/**
 	 * Consumption of the energy by the device.
 	 */
-	private Consumption consumption;
+	private Tuple3<SustainableEnergy, EnergySource, Consumption> consumption;
 
 	/**
 	 * Enable to build smart home device for the given details.
@@ -45,8 +43,31 @@ public class SmartHomeDevice implements Serializable {
 	 * @author chandrashekarv
 	 *
 	 */
-	public static interface SmartHomeDeviceBuilder {
+	public static abstract class SmartHomeDeviceBuilder {
 
-		public SmartHomeDevice build(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap);
+		protected SmartHomeDevice smartHomeDevice;
+
+		/**
+		 * Name of the device.
+		 */
+		private String deviceName;
+
+		/**
+		 * Unique identifier.
+		 */
+		private String deviceId;
+
+		public SmartHomeDeviceBuilder() {
+			super();
+			this.deviceId = UUID.randomUUID().toString();
+		}
+
+		public SmartHomeDeviceBuilder deviceName(final String deviceName) {
+			this.deviceName = deviceName;
+			return this;
+		}
+
+		public abstract SmartHomeDevice build(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap);
+
 	}
 }

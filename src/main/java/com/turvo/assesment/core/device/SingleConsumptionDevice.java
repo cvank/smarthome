@@ -35,11 +35,18 @@ public class SingleConsumptionDevice extends SmartHomeDevice {
 	 * @author chandrashekarv
 	 *
 	 */
-	public static class SingleConsumptionDeviceBuilder implements SmartHomeDeviceBuilder {
+	public static class SingleConsumptionDeviceBuilder extends SmartHomeDeviceBuilder {
+
+		public SingleConsumptionDeviceBuilder() {
+			super();
+		}
 
 		@Override
 		public SmartHomeDevice build(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap) {
-			return null;
+			smartHomeDevice = new SingleConsumptionDevice();
+			// Set energy and respective energy sources.
+
+			return smartHomeDevice;
 		}
 
 	}
