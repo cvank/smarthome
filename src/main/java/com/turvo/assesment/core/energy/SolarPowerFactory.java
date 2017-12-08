@@ -7,4 +7,9 @@ package com.turvo.assesment.core.energy;
  */
 public class SolarPowerFactory extends PowerFactory {
 
+	@Override
+	public SustainableEnergy createEnergy() {
+		return null;
+	}
+
 }

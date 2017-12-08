@@ -7,16 +7,18 @@ package com.turvo.assesment.core.source;
  * @author chandrashekarv
  *
  */
-public class WindEnergySource implements EnergySource {
+public class WindEnergySource extends EnergySource {
 
 	@Override
-	public void register() {
-		
+	public long register() {
+
+		return 1;
 	}
 
 	@Override
-	public void deRegister() {
+	public boolean deRegister() {
 
+		return false;
 	}
 
 }

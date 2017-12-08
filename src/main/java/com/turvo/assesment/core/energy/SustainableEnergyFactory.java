@@ -3,9 +3,6 @@
  */
 package com.turvo.assesment.core.energy;
 
-import com.turvo.assesment.core.device.Device;
-import com.turvo.assesment.core.device.factory.SmartHomeFactory;
-
 /**
  * SustainableEnergyFactory: Factory generates Sustainable Energy instances for
  * the given energy type.
@@ -13,11 +10,8 @@ import com.turvo.assesment.core.device.factory.SmartHomeFactory;
  * @author chandrashekarv
  *
  */
-public class SustainableEnergyFactory implements SmartHomeFactory {
+public interface SustainableEnergyFactory {
 
-	@Override
-	public Device createDevice() {
-		return null;
-	}
+	public SustainableEnergy createEnergy();
 
 }

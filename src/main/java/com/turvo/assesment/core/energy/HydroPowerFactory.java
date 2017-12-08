@@ -9,5 +9,10 @@ package com.turvo.assesment.core.energy;
  */
 public class HydroPowerFactory extends PowerFactory {
 
+	@Override
+	public SustainableEnergy createEnergy() {
+		return null;
+	}
+
 	
 }

@@ -9,10 +9,10 @@ package com.turvo.assesment.core.source;
  * @author chandrashekarv
  *
  */
-public interface EnergySource {
+public abstract class EnergySource {
 	
-	public void register();
+	public abstract long register();
 	
-	public void deRegister();
+	public abstract boolean deRegister();
 
 }

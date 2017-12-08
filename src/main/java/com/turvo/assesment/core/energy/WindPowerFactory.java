@@ -9,4 +9,9 @@ package com.turvo.assesment.core.energy;
  */
 public class WindPowerFactory extends PowerFactory {
 
+	@Override
+	public SustainableEnergy createEnergy() {
+		return null;
+	}
+
 }

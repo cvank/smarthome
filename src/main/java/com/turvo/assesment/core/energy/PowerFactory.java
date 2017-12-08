@@ -7,6 +7,8 @@ package com.turvo.assesment.core.energy;
  * @author chandrashekarv
  *
  */
-public class PowerFactory {
+public abstract class PowerFactory implements SustainableEnergyFactory {
+
+	public abstract SustainableEnergy createEnergy();
 
 }
