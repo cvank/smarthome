@@ -1,4 +1,4 @@
-package com.turvo.assesment.core.listener;
+package com.turvo.assesment.core.event.listener;
 
 /**
  * SmartHomeListener : Interface that will be implemented by listener classes to

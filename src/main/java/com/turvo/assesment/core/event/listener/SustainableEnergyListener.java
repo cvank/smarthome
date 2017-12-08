@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.turvo.assesment.core.listener;
+package com.turvo.assesment.core.event.listener;
 
 /**
  * @author chandrashekarv

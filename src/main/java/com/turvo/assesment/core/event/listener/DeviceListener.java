@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.turvo.assesment.core.listener;
+package com.turvo.assesment.core.event.listener;
 
 /**
  * @author chandrashekarv
  *
  */
-public class EnergySourceListener implements SmartHomeListener {
+public class DeviceListener implements SmartHomeListener {
 
 	@Override
 	public boolean register() {
@@ -16,6 +16,7 @@ public class EnergySourceListener implements SmartHomeListener {
 
 	@Override
 	public boolean deRegister() {
+
 		return false;
 	}
 

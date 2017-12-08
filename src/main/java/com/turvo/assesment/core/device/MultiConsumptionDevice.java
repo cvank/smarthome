@@ -13,8 +13,7 @@ import com.turvo.assesment.core.energy.SustainableEnergy;
 import com.turvo.assesment.core.source.EnergySource;
 
 /**
- * EnrergySourceConfigurer : Provides register and de-register options to energy
- * sources.
+ * MultiConsumptionDevice : Device that utilizes multiple energies to run.
  * 
  * @author chandrashekarv
  *
@@ -32,7 +31,6 @@ public class MultiConsumptionDevice extends SmartHomeDevice {
 	 *
 	 */
 	public static class MultiConsumptionDeviceBuilder extends SmartHomeDeviceBuilder {
-
 		
 		public MultiConsumptionDeviceBuilder() {
 			super();
