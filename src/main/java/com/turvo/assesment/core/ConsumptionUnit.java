@@ -3,8 +3,6 @@
  */
 package com.turvo.assesment.core;
 
-import java.util.Calendar;
-
 /**
  * ConsumptionUnit : SmartHome consumption unit of measurement.
  * 
@@ -14,10 +12,10 @@ import java.util.Calendar;
 public final class ConsumptionUnit {
 	private double volume;
 	private ConsumptionTypeUnit consumptionTypeUnit;
-	private ConsumptionTimeUnit consumptionTimeUnit;
+	private Duration consumptionTimeUnit;
 
 	public ConsumptionUnit(double volume, ConsumptionTypeUnit consumptionTypeUnit,
-			ConsumptionTimeUnit consumptionTimeUnit) {
+			Duration consumptionTimeUnit) {
 		super();
 		this.volume = volume;
 		this.consumptionTypeUnit = consumptionTypeUnit;
@@ -32,7 +30,7 @@ public final class ConsumptionUnit {
 		return consumptionTypeUnit;
 	}
 
-	public ConsumptionTimeUnit getConsumptionTimeUnit() {
+	public Duration getConsumptionTimeUnit() {
 		return consumptionTimeUnit;
 	}
 
@@ -45,28 +43,6 @@ public final class ConsumptionUnit {
 	enum ConsumptionTypeUnit {
 
 		KG, LITER, KW, M3;
-	}
-
-	/**
-	 * Consumption duration.
-	 * 
-	 * @author chandrashekarv
-	 *
-	 */
-	enum ConsumptionTimeUnit {
-
-		DAY(java.util.Calendar.DAY_OF_YEAR), HOUR(Calendar.HOUR), MINUTE(Calendar.MINUTE), MONTH(
-				Calendar.MONTH), SECOND(Calendar.SECOND), WEEK(Calendar.WEEK_OF_YEAR), YEAR(Calendar.YEAR);
-		private final int timeVariant;
-
-		private ConsumptionTimeUnit(int timeVariant) {
-			this.timeVariant = timeVariant;
-		}
-
-		public int getTimeVariant() {
-			return timeVariant;
-		}
-
 	}
 
 }
