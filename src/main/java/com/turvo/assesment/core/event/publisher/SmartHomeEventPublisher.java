@@ -21,6 +21,6 @@ public abstract class SmartHomeEventPublisher implements SmartHomePublisher {
 	}
 
 	@Override
-	public abstract boolean publish();
+	public abstract boolean publish(final Object obj);
 
 }

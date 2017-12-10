@@ -1,4 +1,5 @@
-package com.turvo.assesment.core.event.listener;
+package
+com.turvo.assesment.core.event.listener;
 
 /**
  * SmartHomeListener : Interface that will be implemented by listener classes to
@@ -9,7 +10,20 @@ package com.turvo.assesment.core.event.listener;
  */
 public interface SmartHomeListener {
 
-	public boolean register();
+	/**
+	 * Registers the given item through respective listener.
+	 * 
+	 * @param obj
+	 * @return
+	 */
+	public boolean register(Object obj);
 
-	public boolean deRegister();
+	/**
+	 * Takes id of the item to be unregistered and invoke respective listener for
+	 * unregistering the item.
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public boolean deRegister(long id);
 }

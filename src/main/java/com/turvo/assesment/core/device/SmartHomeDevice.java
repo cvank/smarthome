@@ -5,12 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import com.turvo.assesment.core.Consumption;
 import com.turvo.assesment.core.EnergySourceType;
 import com.turvo.assesment.core.EnergyType;
-import com.turvo.assesment.core.Tuple3;
-import com.turvo.assesment.core.energy.SustainableEnergy;
-import com.turvo.assesment.core.source.EnergySource;
 
 /**
  * SmartHomeDevice: Abstracts the device based on type of consumption.

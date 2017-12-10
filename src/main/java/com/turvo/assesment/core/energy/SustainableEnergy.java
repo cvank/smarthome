@@ -3,14 +3,18 @@
  */
 package com.turvo.assesment.core.energy;
 
+import com.turvo.assesment.core.ConsumptionUnit.ConsumptionTypeUnit;
+
 /**
- * SustainableEnergy: All sustainable energy variants implement
- * SustainableEnergy.
+ * SustainableEnergy: All sustainable energies extend SustainableEnergy.
  * 
  * @author chandrashekarv
  *
  */
-public interface SustainableEnergy {
+public class SustainableEnergy {
 
-	
+	/**
+	 * Measuring units for the given sustainable energy.
+	 */
+	public ConsumptionTypeUnit consumptionTypeUnit;
 }

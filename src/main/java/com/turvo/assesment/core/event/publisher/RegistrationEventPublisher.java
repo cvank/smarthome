@@ -18,8 +18,8 @@ public class RegistrationEventPublisher extends SmartHomeEventPublisher {
 	}
 
 	@Override
-	public boolean publish() {
-		return listener.register();
+	public boolean publish(final Object obj) {
+		return listener.register(obj);
 	}
 
 }

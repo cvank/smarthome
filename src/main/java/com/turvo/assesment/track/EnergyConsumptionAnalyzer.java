@@ -18,6 +18,7 @@ public enum EnergyConsumptionAnalyzer implements ConsumptionAnalyzer {
 		SustainableEnergy energy = (SustainableEnergy) obj;
 		
 		// Analyze total utilization of the given energy.
+		
 		return null;
 	}
 

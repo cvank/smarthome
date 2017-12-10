@@ -32,7 +32,7 @@ public class SingleConsumptionDevice extends SmartHomeDevice {
 	} 
 
 
-	public Tuple<SustainableEnergy, List<EnergySource>> getDeviceEnergyData() {
+	public Tuple<SustainableEnergy, List<EnergySource>> accessDeviceEnergyData() {
 		return deviceEnergyData;
 	}
 

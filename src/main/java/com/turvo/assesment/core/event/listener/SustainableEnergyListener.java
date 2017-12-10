@@ -10,13 +10,13 @@ package com.turvo.assesment.core.event.listener;
 public class SustainableEnergyListener implements SmartHomeListener {
 
 	@Override
-	public boolean register() {
+	public boolean register(Object obj) {
 
 		return false;
 	}
 
 	@Override
-	public boolean deRegister() {
+	public boolean deRegister(long id) {
 
 		return false;
 	}
