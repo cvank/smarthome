@@ -5,10 +5,15 @@ package com.turvo.assesment.core.inbound;
 
 import java.io.Serializable;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * @author chandrashekarv
  *
  */
+@Scope("request")
+@Component
 public class EnergySourceRequest implements Serializable {
 
 	private static final long serialVersionUID = 1448279813480640105L;

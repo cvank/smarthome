@@ -6,10 +6,15 @@ package com.turvo.assesment.core.inbound;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * @author chandrashekarv
  *
  */
+@Scope("request")
+@Component
 public class DeviceRequest implements Serializable {
 
 	private static final long serialVersionUID = -3700216072323573818L;
