@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.turvo.assesment.core.data.repository;
+package com.turvo.assesment.data.repository;
 
 import java.io.Serializable;
 import java.util.List;
@@ -17,9 +17,16 @@ import org.springframework.data.util.CloseableIterator;
 
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
-import com.turvo.assesment.core.data.entity.SmartHome;
 
 /**
+ * Base Repository gets extended by all derived child repository classes.
+ * Provides generic operations required for all repositories.
+ * 
+ * TODO: Chose required base repository at run time, hence can be extended the
+ * functionality for any DB that supports Spring-Data. make use of strategy
+ * pattern for the same.
+ * 
+ * 
  * @author chandrashekarv
  *
  */

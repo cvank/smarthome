@@ -1,11 +1,11 @@
 /**
  * 
  */
-package com.turvo.assesment.core.data.repository;
+package com.turvo.assesment.data.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.turvo.assesment.core.data.entity.EnergySource;
+import com.turvo.assesment.data.entity.EnergySource;
 
 /**
  * @author chandrashekarv

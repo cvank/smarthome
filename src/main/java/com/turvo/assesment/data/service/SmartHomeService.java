@@ -1,18 +1,18 @@
 /**
  * 
  */
-package com.turvo.assesment.core.data.service;
+package com.turvo.assesment.data.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.turvo.assesment.core.data.entity.Device;
-import com.turvo.assesment.core.data.entity.Energy;
-import com.turvo.assesment.core.data.entity.SmartHome;
-import com.turvo.assesment.core.data.repository.BaseRepository;
-import com.turvo.assesment.core.data.repository.SmartHomeRepository;
+import com.turvo.assesment.data.entity.Device;
+import com.turvo.assesment.data.entity.Energy;
+import com.turvo.assesment.data.entity.SmartHome;
+import com.turvo.assesment.data.repository.BaseRepository;
+import com.turvo.assesment.data.repository.SmartHomeRepository;
 
 /**
  * @author chandrashekarv

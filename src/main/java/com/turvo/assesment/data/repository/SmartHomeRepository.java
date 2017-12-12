@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.turvo.assesment.core.data.repository;
+package com.turvo.assesment.data.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.turvo.assesment.core.data.entity.SmartHome;
+import com.turvo.assesment.data.entity.SmartHome;
 
 /**
  * @author chandrashekarv

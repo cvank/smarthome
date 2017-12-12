@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.turvo.assesment.core.data.entity;
+package com.turvo.assesment.data.entity;
 
 import java.util.Date;
 import java.util.List;
