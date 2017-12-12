@@ -20,12 +20,8 @@ public class Device {
 
 	private String deviceName;
 
-	private List<EnergySource> energySources;
-
-	private List<Energy> energies;
-
 	private List<DeviceEnergyData> deviceEnergyData;
-	
+
 	private AttributeData data;
 
 	public AttributeData getData() {
@@ -52,28 +48,34 @@ public class Device {
 		this.deviceName = deviceName;
 	}
 
-	public List<EnergySource> getEnergySources() {
-		return energySources;
-	}
-
-	public void setEnergySources(List<EnergySource> energySources) {
-		this.energySources = energySources;
-	}
-
-	public List<Energy> getEnergies() {
-		return energies;
-	}
-
-	public void setEnergies(List<Energy> energies) {
-		this.energies = energies;
-	}
-
 	public List<DeviceEnergyData> getDeviceEnergyData() {
 		return deviceEnergyData;
 	}
 
 	public void setDeviceEnergyData(List<DeviceEnergyData> deviceEnergyData) {
 		this.deviceEnergyData = deviceEnergyData;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (deviceId ^ (deviceId >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Device other = (Device) obj;
+		if (deviceId != other.deviceId)
+			return false;
+		return true;
 	}
 
 }

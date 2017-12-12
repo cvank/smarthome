@@ -11,6 +11,6 @@ import com.turvo.assesment.core.data.entity.Device;
  * @author chandrashekarv
  *
  */
-public interface DeviceRepository extends MongoRepository<Device, Long> {
+public interface DeviceCrudRepository extends MongoRepository<Device, Long> {
 
 }
