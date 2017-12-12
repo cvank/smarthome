@@ -25,6 +25,7 @@ public class SmartHomeFacade {
 	DeviceService deviceService;
 
 	public void addDeviceToHome(SmartHome home, Device device) {
-
+		
+		
 	}
 }
