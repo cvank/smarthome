@@ -29,12 +29,24 @@ public class SmartHome {
 
 	private Date lastModiefiedDate;
 
+	/**
+	 * One Home with multiple devices mapped by embedding device documents.
+	 */
 	private List<Device> devices;
 
-	private List<EnergySource> energySources;
+	/**
+	 * One Home with multiple energy sources mapped by referencing energy source document ids.
+	 */
+	private List<Long> energySources;
 
-	private List<Energy> energies;
+	/**
+	 * One Home with multiple energies mapped by referencing energy document ids.
+	 */
+	private List<Long> energies;
 
+	/**
+	 * Any additonal data for the given home.
+	 */
 	private AttributeData data;
 
 	public AttributeData getData() {
@@ -45,19 +57,19 @@ public class SmartHome {
 		this.data = data;
 	}
 
-	public List<EnergySource> getEnergySources() {
+	public List<Long> getEnergySources() {
 		return energySources;
 	}
 
-	public void setEnergySources(List<EnergySource> energySources) {
+	public void setEnergySources(List<Long> energySources) {
 		this.energySources = energySources;
 	}
 
-	public List<Energy> getEnergies() {
+	public List<Long> getEnergies() {
 		return energies;
 	}
 
-	public void setEnergies(List<Energy> energies) {
+	public void setEnergies(List<Long> energies) {
 		this.energies = energies;
 	}
 
