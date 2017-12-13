@@ -4,6 +4,7 @@
 package com.turvo.assesment.data.service;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -69,7 +70,11 @@ public class SmartHomeService extends BaseService {
 	}
 
 	public void addEnergyToHome(SmartHome home, Energy energy) {
-		home.getEnergies().add(energy);
+		if (Objects.isNull(energy.getId())) {
+			// Save energy to energy document and then associate it with home.
+		}
+
+		home.getEnergies().add(energy.getId());
 		saveOrUpdate(home);
 	}
 
@@ -77,7 +82,7 @@ public class SmartHomeService extends BaseService {
 		super.saveOrUpdate(home);
 	}
 
-	public void addEnergiesToHome(SmartHome home, List<Energy> energies) {
+	public void addEnergiesToHome(SmartHome home, List<Long> energies) {
 		home.getEnergies().addAll(energies);
 		saveOrUpdate(home);
 	}
