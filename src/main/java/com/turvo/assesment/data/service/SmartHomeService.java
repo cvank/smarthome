@@ -87,12 +87,12 @@ public class SmartHomeService extends BaseService {
 		saveOrUpdate(home);
 	}
 
-	public void removeEnergyFromHome(SmartHome home, Energy energy) {
+	public void removeEnergyFromHome(SmartHome home, Long energy) {
 		home.getEnergies().remove(energy);
 		saveOrUpdate(home);
 	}
 
-	public void removeEnergiesFromHome(SmartHome home, List<Energy> energies) {
+	public void removeEnergiesFromHome(SmartHome home, List<Long> energies) {
 		home.getEnergies().removeAll(energies);
 		saveOrUpdate(home);
 	}
