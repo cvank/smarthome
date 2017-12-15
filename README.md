@@ -14,9 +14,9 @@ Modules :
 3. Score module - To score different elements such as Homes, Devices etc
 4. Badge - Provide Badges based on achieving goals.
 5. Goal -  Set goals & goal templates for homes.
-6. Track - Anslyse the data consumption by each device and home.
+6. Track - Analyse the data consumption by each device and home.
 
-Eventhough, implementation is monolothic, the idea is to implememnt Microservice based architecture to accomodate each module as a seperate micorservice. This helps to scale the system and add new modules as needed.
+Even Though, implementation is monolithic type for POC, the idea is to implement Microservice based architecture to accommodate each module as a separate microservice. This helps to scale the system and add new modules as needed.
 
 
 Implementation Approach
@@ -25,20 +25,20 @@ EnergySource, Sustainable Energy, Devices running on Energy and Home.
 
 - Devices are of two types
 1. Single Consumption Device
-2. Multi Consunmption Device
+2. Multi Consumption Device
 
 Single Consumption Device consumes any one type of sustainable energy, which may have multiple sources. For instance, Power can be sourced from Solar Power, Thermal, Water Or Wind.
 
-Similary, a MultiConsumptionDevice powers by multiple energies and each energy can be sourced through multiple sources.
+Similarly, a MultiConsumptionDevice powers by multiple energies and each energy can be sourced through multiple sources.
 For instance, a washing machine requires both water and power to run. And each energy may be sourced from multiple sources.
 
-- System supports CRUD of multiple homes, devicies to each home, energy and sources for each device. In addition, each repository supports relevant operations. 
+- System supports CRUD of multiple homes, devices to each home, energy and sources for each device. In addition, each repository supports relevant operations. 
 
 - Creating a home
-  Using buider pattern to build a home instance.
+  Using builder pattern to build a home instance.
   
 - Creating a Device
-- Similarly use builder pattern and Factory pattern to create requried instances based on incoming request. For ex: Single Consumption or Multi Consumption.
+- Similarly use builder pattern and Factory pattern to create required instances based on incoming request. For ex: Single Consumption or Multi Consumption.
 
 - Event listeners & Publishers
   Listeners listen for each event such as Registering a home, device etc as well as starting and stopping a device.
@@ -53,10 +53,10 @@ For instance, a washing machine requires both water and power to run. And each e
 - Systems supports additional attribute data at Device, Home, Energy and Energy Source level through a custom AttributeData data structure.
 - Implementation is extendable for creating new types of device, homes, energies and energy sources without changing existing code.
 
-- Reposoitories & Services
- Both Repository and Service layer provides required abstraction to avoid redundency in coding. For instance, Repository layer userr BaseRepository to abstract out basic operations required for all child respositories. This avoid duplicate code at derived level, and encapsulate implemntation details from calling class. The same approach is followed for Service Layer.
+- Repositories & Services
+ Both Repository and Service layer provides required abstraction to avoid redundancy in coding. For instance, Repository layer user BaseRepository to abstract out basic operations required for all child repositories. This avoid duplicate code at derived level, and encapsulate implementation details from calling class. The same approach is followed for Service Layer.
  
- - Strategy will be used at repository layer to provide multiple implemntations based on persistence layer adoption. For instance, for Mongo, Cassandra etc.
+ - Strategy will be used at repository layer to provide multiple implementations based on persistence layer adoption. For instance, for Mongo, Cassandra etc.
  
 
 
@@ -69,7 +69,7 @@ Device
 DeviceEnergyData
 DeviceConsumption
 ConsumptionData
-Eerngy
+Energy
 EnergySource
 
 - Home -> Device : One to Many 
@@ -82,7 +82,7 @@ EnergySource
 Why Mongo:
 - For Aggregating data
 - Supports object model
-- Eventhough write speeds are comparitively lesser than Cassandra, considering object modeling preferred Mongo.
+- Even Though write speeds are comparatively lesser than Cassandra, considering object modeling preferred Mongo.
 
 Disadvantages:
 Downtime due to Single Master model, if master is down. Where as Cassandra supports multiple master model.
@@ -91,10 +91,12 @@ Downtime due to Single Master model, if master is down. Where as Cassandra suppo
 Class diagram will be uploaded soon
 
 # TODO
-Sequence diagram, for various flows such as creation of device, home, and tracking enrgy consumption, will be uploaded soon.
+Sequence diagram, for various flows such as creation of device, home, and tracking energy consumption, will be uploaded soon.
 
 # TODO
 MongoDB Domain model will be uploaded soon.
+
+
 
 
 
