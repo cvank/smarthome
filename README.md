@@ -4,6 +4,9 @@ Implemented using
 Spring-boot
 Java 8
 MongoDB
+Maven
+Spring data
+
 
 Modules :
 1. Core module - Provides interfaces and implementation for operating various elements of the problem statement.
@@ -29,7 +32,7 @@ Single Consumption Device consumes any one type of sustainable energy, which may
 Similary, a MultiConsumptionDevice powers by multiple energies and each energy can be sourced through multiple sources.
 For instance, a washing machine requires both water and power to run. And each energy may be sourced from multiple sources.
 
-- System supports CRUD of multiple homes, devicies to each home, energy and sources for each device.
+- System supports CRUD of multiple homes, devicies to each home, energy and sources for each device. In addition, each repository supports relevant operations. 
 
 - Creating a home
   Using buider pattern to build a home instance.
@@ -38,8 +41,8 @@ For instance, a washing machine requires both water and power to run. And each e
 - Similarly use builder pattern and Factory pattern to create requried instances based on incoming request. For ex: Single Consumption or Multi Consumption.
 
 - Event listeners & Publishers
-- Listeners listen for each event such as Registering a home, device etc as well as starting and stopping a device.
-- Listened events gets published/stored to DB for tracking purpose.
+  Listeners listen for each event such as Registering a home, device etc as well as starting and stopping a device.
+  Listened events gets published/stored to DB for tracking purpose.
 
 - Device status
 - At any given time frame any device can be either at START state or STOP state.
@@ -48,8 +51,13 @@ For instance, a washing machine requires both water and power to run. And each e
 - For instance, when a device is started, device start is aware of the time of start, device started, and other metadata. Once received a request to stop the device next state would be Stop device and amount of time taken, energy consumed and soure of energy for each energy type are published to storage.
 
 - Systems supports additional attribute data at Device, Home, Energy and Energy Source level through a custom AttributeData data structure.
+- Implementation is extendable for creating new types of device, homes, energies and energy sources without changing existing code.
 
-
+- Reposoitories & Services
+ Both Repository and Service layer provides required abstraction to avoid redundency in coding. For instance, Repository layer userr BaseRepository to abstract out basic operations required for all child respositories. This avoid duplicate code at derived level, and encapsulate implemntation details from calling class. The same approach is followed for Service Layer.
+ 
+ - Strategy will be used at repository layer to provide multiple implemntations based on persistence layer adoption. For instance, for Mongo, Cassandra etc.
+ 
 
 
 DB Model-
@@ -78,5 +86,15 @@ Why Mongo:
 
 Disadvantages:
 Downtime due to Single Master model, if master is down. Where as Cassandra supports multiple master model.
+
+# TODO
+Class diagram will be uploaded soon
+
+# TODO
+Sequence diagram, for various flows such as creation of device, home, and tracking enrgy consumption, will be uploaded soon.
+
+# TODO
+MongoDB Domain model will be uploaded soon.
+
 
 
