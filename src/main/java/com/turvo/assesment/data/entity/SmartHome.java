@@ -19,7 +19,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class SmartHome {
 
 	@Id
-	private long homeId;
+	private String homeId;
 
 	private String homeName;
 
@@ -37,12 +37,12 @@ public class SmartHome {
 	/**
 	 * One Home with multiple energy sources mapped by referencing energy source document ids.
 	 */
-	private List<Long> energySources;
+	private List<String> energySources;
 
 	/**
 	 * One Home with multiple energies mapped by referencing energy document ids.
 	 */
-	private List<Long> energies;
+	private List<String> energies;
 
 	/**
 	 * Any additonal data for the given home.
@@ -57,19 +57,19 @@ public class SmartHome {
 		this.data = data;
 	}
 
-	public List<Long> getEnergySources() {
+	public List<String> getEnergySources() {
 		return energySources;
 	}
 
-	public void setEnergySources(List<Long> energySources) {
+	public void setEnergySources(List<String> energySources) {
 		this.energySources = energySources;
 	}
 
-	public List<Long> getEnergies() {
+	public List<String> getEnergies() {
 		return energies;
 	}
 
-	public void setEnergies(List<Long> energies) {
+	public void setEnergies(List<String> energies) {
 		this.energies = energies;
 	}
 
@@ -81,11 +81,11 @@ public class SmartHome {
 		this.devices = devices;
 	}
 
-	public long getHomeId() {
+	public String getHomeId() {
 		return homeId;
 	}
 
-	public void setHomeId(long homeId) {
+	public void setHomeId(String homeId) {
 		this.homeId = homeId;
 	}
 

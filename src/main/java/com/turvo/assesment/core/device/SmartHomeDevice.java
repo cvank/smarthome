@@ -5,9 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import com.turvo.assesment.core.EnergySourceType;
-import com.turvo.assesment.core.EnergyType;
-
 /**
  * SmartHomeDevice: Abstracts the device based on type of consumption.
  * 
@@ -28,12 +25,26 @@ public class SmartHomeDevice implements Serializable {
 	 */
 	private String deviceId;
 
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
+	private String homeId;
+
+	public String getDeviceId() {
+		return deviceId;
 	}
 
 	public void setDeviceId(String deviceId) {
 		this.deviceId = deviceId;
+	}
+
+	public String getHomeId() {
+		return homeId;
+	}
+
+	public void setHomeId(String homeId) {
+		this.homeId = homeId;
+	}
+
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
 	}
 
 	/*	*//**
@@ -44,10 +55,6 @@ public class SmartHomeDevice implements Serializable {
 
 	public String getDeviceName() {
 		return deviceName;
-	}
-
-	public String getDeviceId() {
-		return deviceId;
 	}
 
 	/*
@@ -93,7 +100,8 @@ public class SmartHomeDevice implements Serializable {
 			return this;
 		}
 
-		public abstract SmartHomeDevice build(Map<Long, List<Long>> deviceEnergyMap, Map<String, Object> additionalData);
+		public abstract SmartHomeDevice build(Map<Long, List<Long>> deviceEnergyMap,
+				Map<String, Object> additionalData);
 
 	}
 }

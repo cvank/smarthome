@@ -12,6 +12,6 @@ import com.turvo.assesment.data.entity.SmartHome;
  * @author chandrashekarv
  *
  */
-public interface SmartHomeCrudRepository extends MongoRepository<SmartHome, Long> {
+public interface SmartHomeCrudRepository extends MongoRepository<SmartHome, String> {
 
 }

@@ -18,7 +18,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class DeviceConsumption {
 
 	@Id
-	private long id;
+	private String id;
 
 	/**
 	 * gets updpated every time consumption data is fed to the system.
@@ -46,7 +46,7 @@ public class DeviceConsumption {
 		this.deviceId = deviceId;
 	}
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 

@@ -3,7 +3,7 @@
  */
 package com.turvo.assesment.core.event.publisher;
 
-import com.turvo.assesment.core.event.listener.SmartHomeListener;
+import com.turvo.assesment.core.event.listener.EventListener;
 
 /**
  * RegistrationEventPublisher : Registers the incoming registration event.
@@ -13,7 +13,7 @@ import com.turvo.assesment.core.event.listener.SmartHomeListener;
  */
 public class RegistrationEventPublisher extends SmartHomeEventPublisher {
 
-	public RegistrationEventPublisher(SmartHomeListener listener) {
+	public RegistrationEventPublisher(EventListener listener) {
 		super(listener);
 	}
 

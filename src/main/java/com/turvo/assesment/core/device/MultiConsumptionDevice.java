@@ -10,8 +10,6 @@ import java.util.Map;
 import com.turvo.assesment.core.EnergySourceType;
 import com.turvo.assesment.core.EnergyType;
 import com.turvo.assesment.core.Tuple;
-import com.turvo.assesment.core.energy.SustainableEnergy;
-import com.turvo.assesment.core.source.EnergySource;
 
 /**
  * MultiConsumptionDevice : Device that utilizes multiple energies to run.
@@ -23,19 +21,19 @@ public class MultiConsumptionDevice extends SmartHomeDevice {
 
 	private static final long serialVersionUID = -6725976529089029056L;
 
-	private List<Tuple<SustainableEnergy, List<EnergySource>>> deviceEnergyData;
+	private List<Tuple<String, List<String>>> deviceEnergyData;
 
 	public MultiConsumptionDevice(String deviceId, String deviceName) {
 		setDeviceId(deviceId);
 		setDeviceName(deviceName);
 	}
 
-	public List<Tuple<SustainableEnergy, List<EnergySource>>> accessDeviceEnergyData() {
+	public List<Tuple<String, List<String>>> accessDeviceEnergyData() {
 		return Collections.unmodifiableList(deviceEnergyData);
 	}
 
 	/**
-	 * Builds multi Consumption device.
+	 * Builds multi-Consumption device.
 	 * 
 	 * @author chandrashekarv
 	 *

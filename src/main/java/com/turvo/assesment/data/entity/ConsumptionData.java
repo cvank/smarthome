@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class ConsumptionData {
 
 	@Id
-	private long id;
+	private String id;
 
 	// Time of entry.
 	private Date entryTime;
@@ -38,7 +38,7 @@ public class ConsumptionData {
 	private long energySource;
 
 	
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 

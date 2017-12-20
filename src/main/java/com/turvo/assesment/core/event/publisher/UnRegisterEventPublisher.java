@@ -3,7 +3,7 @@
  */
 package com.turvo.assesment.core.event.publisher;
 
-import com.turvo.assesment.core.event.listener.SmartHomeListener;
+import com.turvo.assesment.core.event.listener.EventListener;
 
 /**
  * RegistrationEventPublisher : UnRegisters the incoming event.
@@ -13,7 +13,7 @@ import com.turvo.assesment.core.event.listener.SmartHomeListener;
  */
 public class UnRegisterEventPublisher extends SmartHomeEventPublisher {
 
-	public UnRegisterEventPublisher(SmartHomeListener listener) {
+	public UnRegisterEventPublisher(EventListener listener) {
 		super(listener);
 	}
 

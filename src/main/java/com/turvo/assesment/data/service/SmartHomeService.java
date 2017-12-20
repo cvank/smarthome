@@ -35,7 +35,7 @@ public class SmartHomeService extends BaseService {
 		return (T) smartHomeRepository;
 	}
 
-	public long addHome(SmartHome home) {
+	public String addHome(SmartHome home) {
 		return super.add(home).getHomeId();
 
 	}
@@ -50,6 +50,17 @@ public class SmartHomeService extends BaseService {
 	}
 
 	public void addDeviceToHome(SmartHome home, Device device) {
+		home.getDevices().add(device);
+		saveOrUpdate(home);
+	}
+
+	/**
+	 * 
+	 * @param homeId
+	 * @param device
+	 */
+	public void addDeviceToHome(String homeId, Device device) {
+		SmartHome home = smartHomeRepository.crudRepository().findOne(homeId);
 		home.getDevices().add(device);
 		saveOrUpdate(home);
 	}
@@ -82,7 +93,7 @@ public class SmartHomeService extends BaseService {
 		super.saveOrUpdate(home);
 	}
 
-	public void addEnergiesToHome(SmartHome home, List<Long> energies) {
+	public void addEnergiesToHome(SmartHome home, List<String> energies) {
 		home.getEnergies().addAll(energies);
 		saveOrUpdate(home);
 	}

@@ -3,11 +3,14 @@
  */
 package com.turvo.assesment.core.event.listener;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author chandrashekarv
  *
  */
-public class EnergySourceListener implements SmartHomeListener {
+@Component("energy-source")
+public class EnergySourceListener implements EventListener {
 
 	@Override
 	public boolean register(Object obj) {

@@ -3,7 +3,7 @@
  */
 package com.turvo.assesment.core.event.publisher;
 
-import com.turvo.assesment.core.event.listener.SmartHomeListener;
+import com.turvo.assesment.core.event.listener.EventListener;
 
 /**
  * SmartHomeEventPublisher : Abstracts out various smart home events.
@@ -13,9 +13,9 @@ import com.turvo.assesment.core.event.listener.SmartHomeListener;
  */
 public abstract class SmartHomeEventPublisher implements SmartHomePublisher {
 
-	public SmartHomeListener listener;
+	public EventListener listener;
 
-	public SmartHomeEventPublisher(SmartHomeListener listener) {
+	public SmartHomeEventPublisher(EventListener listener) {
 		super();
 		this.listener = listener;
 	}

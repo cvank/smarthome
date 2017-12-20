@@ -16,13 +16,23 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Device {
 
 	@Id
-	private long deviceId;
+	private String deviceId;
 
 	private String deviceName;
 
 	private List<DeviceEnergyData> deviceEnergyData;
 
 	private AttributeData data;
+	
+	private String homeId;
+	
+	public String getHomeId() {
+		return homeId;
+	}
+
+	public void setHomeId(String homeId) {
+		this.homeId = homeId;
+	}
 
 	public AttributeData getData() {
 		return data;
@@ -32,11 +42,11 @@ public class Device {
 		this.data = data;
 	}
 
-	public long getDeviceId() {
+	public String getDeviceId() {
 		return deviceId;
 	}
 
-	public void setDeviceId(long deviceId) {
+	public void setDeviceId(String deviceId) {
 		this.deviceId = deviceId;
 	}
 
@@ -60,7 +70,7 @@ public class Device {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (deviceId ^ (deviceId >>> 32));
+		result = prime * result + ((deviceId == null) ? 0 : deviceId.hashCode());
 		return result;
 	}
 
@@ -73,9 +83,11 @@ public class Device {
 		if (getClass() != obj.getClass())
 			return false;
 		Device other = (Device) obj;
-		if (deviceId != other.deviceId)
+		if (deviceId == null) {
+			if (other.deviceId != null)
+				return false;
+		} else if (!deviceId.equals(other.deviceId))
 			return false;
 		return true;
 	}
-
 }

@@ -11,6 +11,6 @@ import com.turvo.assesment.data.entity.EnergySource;
  * @author chandrashekarv
  *
  */
-public interface EnergySourceCrudRepository extends MongoRepository<EnergySource, Long> {
+public interface EnergySourceCrudRepository extends MongoRepository<EnergySource, String> {
 
 }

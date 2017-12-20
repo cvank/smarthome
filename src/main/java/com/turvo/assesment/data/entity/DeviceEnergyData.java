@@ -11,24 +11,24 @@ import java.util.List;
  */
 public class DeviceEnergyData {
 
-	private Energy energy;
+	private String energyId;
 
-	private List<EnergySource> energySources;
+	private List<String> energySourceIds;
 
-	public Energy getEnergy() {
-		return energy;
+	public String getEnergyId() {
+		return energyId;
 	}
 
-	public void setEnergy(Energy energy) {
-		this.energy = energy;
+	public void setEnergyId(String energyId) {
+		this.energyId = energyId;
 	}
 
-	public List<EnergySource> getEnergySources() {
-		return energySources;
+	public List<String> getEnergySourceIds() {
+		return energySourceIds;
 	}
 
-	public void setEnergySources(List<EnergySource> energySources) {
-		this.energySources = energySources;
+	public void setEnergySourceIds(List<String> energySourceIds) {
+		this.energySourceIds = energySourceIds;
 	}
 
 }

@@ -5,12 +5,17 @@ package com.turvo.assesment.core;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.turvo.assesment.core.device.SmartHomeDevice;
 import com.turvo.assesment.core.device.SmartHomeDeviceFactory;
+import com.turvo.assesment.core.event.publisher.SmartHomePublisher;
+import com.turvo.assesment.data.service.SmartHomeService;
 import com.turvo.assesment.smarthome.domain.DeviceFeedRequest;
+import com.turvo.assesment.smarthome.domain.EntityType;
 
 /**
  * @author chandrashekarv
@@ -18,6 +23,12 @@ import com.turvo.assesment.smarthome.domain.DeviceFeedRequest;
  */
 @Component
 public class SmartHomeEngine {
+
+	@Autowired
+	SmartHomeService smartHomeService;
+
+	@Autowired
+	PublisherFactory publisherFactory;
 
 	/**
 	 * Adds home to the system.
@@ -65,19 +76,25 @@ public class SmartHomeEngine {
 	 * @param deviceData
 	 * @return
 	 */
-	public boolean addDevice(final long homeId, final String deviceName,
-			final Map<Long, List<Long>> deviceData, final Map<String, Object> additionalRequestData) {
+	public boolean addDevice(final long homeId, final String deviceName, final Map<Long, List<Long>> deviceData,
+			final Map<String, Object> additionalRequestData) {
 
 		// TODO: Check given energy and energy sources are already registered in the
 		// system.
 		// If not create the same.
 
 		// Create device instance for the given details.
-		SmartHomeDevice device = SmartHomeDeviceFactory.getInstance().create(deviceName, deviceData, additionalRequestData);
+		SmartHomeDevice device = SmartHomeDeviceFactory.getInstance().create(deviceName, deviceData,
+				additionalRequestData);
 
 		// Invoke publisher for device registration
+		Optional<SmartHomePublisher> homePublisherOp = publisherFactory.getPublisher(EventType.REGISTER,
+				EntityType.DEVICE);
 
-		// Add device to home
+		if (homePublisherOp.isPresent()) {
+			// Add device to home
+			homePublisherOp.get().publish(device);
+		}
 
 		return true;
 

@@ -20,7 +20,7 @@ public class DeviceRepository extends BaseRepository {
 	DeviceCrudRepository deviceCrudRepository;
 	
 	@Override
-	public CrudRepository<Device, Long> crudRepository() {
+	public CrudRepository<Device, String> crudRepository() {
 		return deviceCrudRepository;
 	}
 

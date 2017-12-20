@@ -21,7 +21,7 @@ public class SmartHomeRepository extends BaseRepository {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public CrudRepository<SmartHome, Long> crudRepository() {
+	public CrudRepository<SmartHome, String> crudRepository() {
 		return smartHomeCrudRepository;
 
 	}

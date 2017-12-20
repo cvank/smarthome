@@ -9,8 +9,6 @@ import java.util.Map;
 import com.turvo.assesment.core.EnergySourceType;
 import com.turvo.assesment.core.EnergyType;
 import com.turvo.assesment.core.Tuple;
-import com.turvo.assesment.core.energy.SustainableEnergy;
-import com.turvo.assesment.core.source.EnergySource;
 
 /**
  * SingleConsumptionDevice : An installed device that consumes single
@@ -23,19 +21,16 @@ public class SingleConsumptionDevice extends SmartHomeDevice {
 
 	private static final long serialVersionUID = -1737460588851714322L;
 
-	private Tuple<SustainableEnergy, List<EnergySource>> deviceEnergyData;
+	private Tuple<String, List<String>> deviceEnergyData;
 
-	
 	public SingleConsumptionDevice(String deviceId, String deviceName) {
 		setDeviceId(deviceId);
-		setDeviceName(deviceName); 
-	} 
-
-
-	public Tuple<SustainableEnergy, List<EnergySource>> accessDeviceEnergyData() {
-		return deviceEnergyData;
+		setDeviceName(deviceName);
 	}
 
+	public Tuple<String, List<String>> accessDeviceEnergyData() {
+		return deviceEnergyData;
+	}
 
 	/**
 	 * Builds Single Consumption device.
@@ -56,7 +51,7 @@ public class SingleConsumptionDevice extends SmartHomeDevice {
 
 			return smartHomeDevice;
 		}
-		
+
 		@Deprecated
 		public SmartHomeDevice build1(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap) {
 			smartHomeDevice = new SingleConsumptionDevice(getDeviceId(), getDeviceName());
