@@ -17,7 +17,7 @@ import org.springframework.web.context.WebApplicationContext;
  */
 @Component
 @Scope(WebApplicationContext.SCOPE_REQUEST)
-public class DeviceFeedRequest {
+public class DeviceFeedRequest extends BaseRequest {
 
 	private long deviceId;
 
@@ -29,6 +29,11 @@ public class DeviceFeedRequest {
 		return additionalData;
 	}
 
+	@Override
+	public RequestType requestType() {
+		return RequestType.FEED;
+	}
+	
 	public void setAdditionalData(Map<String, Object> additionalData) {
 		this.additionalData = additionalData;
 	}
@@ -53,6 +58,16 @@ public class DeviceFeedRequest {
 		private long energyId;
 
 		private long energySourceId;
+
+		private double consumption;
+		
+		public double getConsumption() {
+			return consumption;
+		}
+
+		public void setConsumption(double consumption) {
+			this.consumption = consumption;
+		}
 
 		public long getEnergyId() {
 			return energyId;

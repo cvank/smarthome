@@ -50,7 +50,15 @@ public class SingleConsumptionDevice extends SmartHomeDevice {
 		}
 
 		@Override
-		public SmartHomeDevice build(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap) {
+		public SmartHomeDevice build(Map<Long, List<Long>> deviceEnergyMap, Map<String, Object> additionalData) {
+			smartHomeDevice = new SingleConsumptionDevice(getDeviceId(), getDeviceName());
+			// Set energy and respective energy sources.
+
+			return smartHomeDevice;
+		}
+		
+		@Deprecated
+		public SmartHomeDevice build1(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap) {
 			smartHomeDevice = new SingleConsumptionDevice(getDeviceId(), getDeviceName());
 			// Set energy and respective energy sources.
 

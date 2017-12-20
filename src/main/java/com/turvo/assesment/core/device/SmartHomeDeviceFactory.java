@@ -45,7 +45,14 @@ public final class SmartHomeDeviceFactory implements Serializable, Cloneable {
 		return getInstance();
 	}
 
-	public SmartHomeDevice create(final String deviceName, final Map<EnergyType, List<EnergySourceType>> deviceData) {
+	/**
+	 * 
+	 * @param deviceName
+	 * @param deviceData
+	 * @return
+	 */
+	public SmartHomeDevice create(final String deviceName, final Map<Long, List<Long>> deviceData,
+			final Map<String, Object> additionalRequestData) {
 
 		int noOfEnergyTypes = Objects.isNull(deviceData) ? 0 : deviceData.size();
 		SmartHomeDeviceBuilder builder = null;
@@ -65,7 +72,7 @@ public final class SmartHomeDeviceFactory implements Serializable, Cloneable {
 			builder = new MultiConsumptionDeviceBuilder();
 		}
 
-		return builder.deviceName(deviceName).build(deviceData);
+		return builder.deviceName(deviceName).build(deviceData, additionalRequestData);
 
 	}
 }

@@ -27,7 +27,7 @@ public class MultiConsumptionDevice extends SmartHomeDevice {
 
 	public MultiConsumptionDevice(String deviceId, String deviceName) {
 		setDeviceId(deviceId);
-		setDeviceName(deviceName); 
+		setDeviceName(deviceName);
 	}
 
 	public List<Tuple<SustainableEnergy, List<EnergySource>>> accessDeviceEnergyData() {
@@ -47,7 +47,13 @@ public class MultiConsumptionDevice extends SmartHomeDevice {
 		}
 
 		@Override
-		public SmartHomeDevice build(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap) {
+		public SmartHomeDevice build(Map<Long, List<Long>> deviceEnergyMap, Map<String, Object> additionalData) {
+			smartHomeDevice = new MultiConsumptionDevice(getDeviceId(), getDeviceName());
+
+			return smartHomeDevice;
+		}
+
+		public SmartHomeDevice build1(Map<EnergyType, List<EnergySourceType>> deviceEnergyMap) {
 			smartHomeDevice = new MultiConsumptionDevice(getDeviceId(), getDeviceName());
 
 			return smartHomeDevice;
