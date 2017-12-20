@@ -10,8 +10,6 @@ import com.turvo.assesment.core.Tuple;
 import com.turvo.assesment.core.device.MultiConsumptionDevice;
 import com.turvo.assesment.core.device.SingleConsumptionDevice;
 import com.turvo.assesment.core.device.SmartHomeDevice;
-import com.turvo.assesment.core.energy.SustainableEnergy;
-import com.turvo.assesment.core.source.EnergySource;
 
 import rx.Observable;
 import rx.schedulers.Schedulers;
@@ -50,7 +48,7 @@ public enum DeviceConsumptionAnalyzer implements ConsumptionAnalyzer {
 		// for the single device access energy utilized.
 		List<AnalysisData> deviceAnalysisData = new CopyOnWriteArrayList<>();
 		Observable.from(device.accessDeviceEnergyData()).subscribeOn(Schedulers.computation())
-				.map(item->fetchFromEnergy(item,device)).doOnNext(e -> deviceAnalysisData.add(e));
+				.map(item -> fetchFromEnergy(item, device)).doOnNext(e -> deviceAnalysisData.add(e));
 
 		return null;
 	}
@@ -61,7 +59,7 @@ public enum DeviceConsumptionAnalyzer implements ConsumptionAnalyzer {
 	 * @param tuple
 	 * @return
 	 */
-	private AnalysisData fetchFromEnergy(Tuple<SustainableEnergy, List<EnergySource>> tuple, final SmartHomeDevice device) {
+	private AnalysisData fetchFromEnergy(Tuple<String, List<String>> tuple, final SmartHomeDevice device) {
 
 		// For each energy fetch consumption per energy source.
 
@@ -80,7 +78,7 @@ public enum DeviceConsumptionAnalyzer implements ConsumptionAnalyzer {
 		// for the single device access energy utilized.
 		List<AnalysisData> deviceAnalysisData = new CopyOnWriteArrayList<>();
 		Observable.just(device.accessDeviceEnergyData()).subscribeOn(Schedulers.computation())
-				.map(tuple->fetchFromEnergy(tuple, device)).doOnNext(e -> deviceAnalysisData.add(e));
+				.map(tuple -> fetchFromEnergy(tuple, device)).doOnNext(e -> deviceAnalysisData.add(e));
 
 		// for the multi device access energy utilized.
 
