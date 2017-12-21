@@ -18,7 +18,7 @@ public class UnRegisterEventPublisher extends SmartHomeEventPublisher {
 	}
 
 	@Override
-	public boolean publish(final Object id) {
+	public Object publish(final Object id) {
 		long l  = (long) id; 
 		listener.deRegister(l);
 		return false;

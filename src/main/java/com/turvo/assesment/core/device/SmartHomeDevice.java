@@ -100,7 +100,7 @@ public class SmartHomeDevice implements Serializable {
 			return this;
 		}
 
-		public abstract SmartHomeDevice build(Map<Long, List<Long>> deviceEnergyMap,
+		public abstract SmartHomeDevice build(Map<String, List<String>> deviceEnergyMap,
 				Map<String, Object> additionalData);
 
 	}

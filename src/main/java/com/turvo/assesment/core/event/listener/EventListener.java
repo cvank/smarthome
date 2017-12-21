@@ -16,7 +16,7 @@ public interface EventListener {
 	 * @param obj
 	 * @return
 	 */
-	public boolean register(Object obj);
+	public Object register(Object obj);
 
 	/**
 	 * Takes id of the item to be unregistered and invoke respective listener for
@@ -25,5 +25,5 @@ public interface EventListener {
 	 * @param id
 	 * @return
 	 */
-	public boolean deRegister(long id);
+	public Object deRegister(long id);
 }

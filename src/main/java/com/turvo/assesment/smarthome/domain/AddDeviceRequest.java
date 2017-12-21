@@ -18,26 +18,26 @@ import org.springframework.web.context.WebApplicationContext;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 public class AddDeviceRequest extends AddRequest {
 
-	private long homeId;
+	private String homeId;
 
 	/**
 	 * Each map entry represents Energy Id as key and value energy sources as value.
 	 */
-	private Map<Long, List<Long>> deviceEnergyData;
+	private Map<String, List<String>> deviceEnergyData;
 
-	public long getHomeId() {
+	public String getHomeId() {
 		return homeId;
 	}
 
-	public void setHomeId(long homeId) {
+	public void setHomeId(String homeId) {
 		this.homeId = homeId;
 	}
 
-	public Map<Long, List<Long>> getDeviceEnergyData() {
+	public Map<String, List<String>> getDeviceEnergyData() {
 		return deviceEnergyData;
 	}
 
-	public void setDeviceEnergyData(Map<Long, List<Long>> deviceEnergyData) {
+	public void setDeviceEnergyData(Map<String, List<String>> deviceEnergyData) {
 		this.deviceEnergyData = deviceEnergyData;
 	}
 

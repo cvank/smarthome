@@ -27,7 +27,7 @@ public class DeviceListener implements EventListener {
 	SmartHomeService smartHomeService;
 
 	@Override
-	public boolean register(Object obj) {
+	public Object register(Object obj) {
 
 		SmartHomeDevice device = (SmartHomeDevice) obj;
 		smartHomeService.addDeviceToHome(device.getHomeId(), populateDeviceEntity(device));
@@ -67,8 +67,7 @@ public class DeviceListener implements EventListener {
 	}
 
 	@Override
-	public boolean deRegister(final long id) {
-
+	public Object deRegister(final long id) {
 		return false;
 	}
 

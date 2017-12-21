@@ -76,7 +76,7 @@ public class SmartHomeEngine {
 	 * @param deviceData
 	 * @return
 	 */
-	public boolean addDevice(final long homeId, final String deviceName, final Map<Long, List<Long>> deviceData,
+	public String addDevice(final String homeId, final String deviceName, final Map<String, List<String>> deviceData,
 			final Map<String, Object> additionalRequestData) {
 
 		// TODO: Check given energy and energy sources are already registered in the
@@ -96,7 +96,7 @@ public class SmartHomeEngine {
 			homePublisherOp.get().publish(device);
 		}
 
-		return true;
+		return null; // returns device id
 
 	}
 

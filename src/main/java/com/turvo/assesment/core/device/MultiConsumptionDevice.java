@@ -45,7 +45,7 @@ public class MultiConsumptionDevice extends SmartHomeDevice {
 		}
 
 		@Override
-		public SmartHomeDevice build(Map<Long, List<Long>> deviceEnergyMap, Map<String, Object> additionalData) {
+		public SmartHomeDevice build(Map<String, List<String>> deviceEnergyMap, Map<String, Object> additionalData) {
 			smartHomeDevice = new MultiConsumptionDevice(getDeviceId(), getDeviceName());
 
 			return smartHomeDevice;

@@ -13,12 +13,12 @@ import org.springframework.stereotype.Component;
 public class EnergySourceListener implements EventListener {
 
 	@Override
-	public boolean register(Object obj) {
+	public Object register(Object obj) {
 		return false;
 	}
 
 	@Override
-	public boolean deRegister(final long id) {
+	public Object deRegister(final long id) {
 		return false;
 	}
 

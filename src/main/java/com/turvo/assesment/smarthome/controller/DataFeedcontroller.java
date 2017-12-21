@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.turvo.assesment.core.SmartHomeEngine;
 import com.turvo.assesment.smarthome.domain.DeviceFeedRequest;
-import com.turvo.assesment.smarthome.domain.SmartHomeResponse;
+import com.turvo.assesment.smarthome.domain.response.SmartHomeResponse;
 
 /**
+ * Endpoint to simulate data feed for a device.
+ * 
  * @author chandrashekarv
  *
  */

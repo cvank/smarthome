@@ -51,7 +51,7 @@ public final class SmartHomeDeviceFactory implements Serializable, Cloneable {
 	 * @param deviceData
 	 * @return
 	 */
-	public SmartHomeDevice create(final String deviceName, final Map<Long, List<Long>> deviceData,
+	public SmartHomeDevice create(final String deviceName, final Map<String, List<String>> deviceData,
 			final Map<String, Object> additionalRequestData) {
 
 		int noOfEnergyTypes = Objects.isNull(deviceData) ? 0 : deviceData.size();

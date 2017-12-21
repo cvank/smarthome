@@ -11,5 +11,5 @@ package com.turvo.assesment.core.event.publisher;
  */
 public interface SmartHomePublisher {
 
-	public boolean publish(final Object obj);
+	public Object publish(final Object obj);
 }

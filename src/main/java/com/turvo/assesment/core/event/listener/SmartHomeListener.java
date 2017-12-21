@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
 public class SmartHomeListener implements EventListener {
 
 	@Override
-	public boolean register(Object obj) {
+	public Object register(Object obj) {
 
 		return false;
 	}
 
 	@Override
-	public boolean deRegister(long id) {
+	public Object deRegister(long id) {
 
 		return false;
 	}

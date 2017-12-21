@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.turvo.assesment.smarthome.domain;
+package com.turvo.assesment.smarthome.domain.response;
 
 /**
  * @author chandrashekarv
