@@ -3,14 +3,17 @@
  */
 package com.turvo.assesment.data.config;
 
-import org.springframework.beans.factory.annotation.Value;
+import static java.util.Collections.singletonList;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 
-import com.mongodb.MongoClientURI;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
 
 /**
  * @author chandrashekarv
@@ -19,12 +22,26 @@ import com.mongodb.MongoClientURI;
 @Configuration
 public class MongoConfig {
 
-	@Value("${spring.data.mongodb.uri}")
+	// @Value("${spring.data.mongodb.uri}")
 	private String uri;
 
-	
+	private String host = "localhost";
+
+	private String username = "chandrashekar";
+
+	private String password = "Admin@123";
+
+	private int port = 27017;
+
+	private String dbName = "smarthometest";
+
 	public @Bean MongoDbFactory mongoDbFactory() {
-		return new SimpleMongoDbFactory(new MongoClientURI(uri));
+		return new SimpleMongoDbFactory(new MongoClient(), dbName);
+	}
+
+	public @Bean MongoClient mongoClient() {
+		return new MongoClient(singletonList(new ServerAddress(host, port)),
+				singletonList(MongoCredential.createCredential(username, dbName, password.toCharArray())));
 	}
 
 	public @Bean MongoTemplate mongoTemplate() {

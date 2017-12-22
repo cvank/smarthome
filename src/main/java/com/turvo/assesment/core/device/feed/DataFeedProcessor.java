@@ -38,6 +38,6 @@ public class DataFeedProcessor {
 
 	public void track(DeviceFeedRequest feedRequest) {
 		// Persist data to mongo.
-
+		
 	}
 }

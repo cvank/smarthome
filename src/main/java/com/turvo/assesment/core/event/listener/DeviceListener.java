@@ -20,7 +20,7 @@ import com.turvo.assesment.data.service.SmartHomeService;
  * @author chandrashekarv
  *
  */
-@Component
+@Component("device")
 public class DeviceListener implements EventListener {
 
 	@Autowired
